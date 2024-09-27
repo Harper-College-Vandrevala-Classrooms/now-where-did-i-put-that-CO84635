@@ -46,6 +46,16 @@ int itemFinder(string inputString, string query) {
 
 int main() {
 
+    assert(itemFinder("a", 'a') == 0);
+    assert(itemFinder("a", 'b') == -1);
+    assert(itemFinder("@", '@') == 0);
+    assert(itemFinder("co84635@mail.harpercollege.edu", '@') == 7);
+    assert(itemFinder("The quick brown fox", 'T') == 0);
+    assert(itemFinder("The quick brown fox", "Th") == 0);
+    assert(itemFinder("The quick brown fox", "The quick brown fox") == 0);
+
+    assert(itemFinder("Pneumonoultramicroscopicsilicovolcanoconiosis", "Pneumonoultramicroscopicsilicovolcanoconiosis") == 0);
+
     assert(itemFinder("The quick brown fox", 'e') == 2);
     assert(itemFinder("The quick brown fox", 'z') == -1);
     assert(itemFinder("The quick brown fox", ' ') == 3);
@@ -57,7 +67,7 @@ int main() {
     assert(itemFinder("The quick brown fox", "The") == 0);
 
     assert(itemFinder("The five boxing wizards jump quickly", 'e') == 2);
-    assert(itemFinder("The five boxing wizards jump quickly", 'z') == -1);
+    assert(itemFinder("The five boxing wizards jump quickly", '!') == -1);
     assert(itemFinder("The five boxing wizards jump quickly", ' ') == 3);
 
     assert(itemFinder("The five boxing wizards jump quickly", "five") == 4);
